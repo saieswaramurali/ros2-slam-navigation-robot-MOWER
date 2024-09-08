@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot name="mower">
+
+    <link name="base_footprint"></link>
+
+    <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://mower_description/meshes/Mice.STL"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.033"></origin>
+        <parent link="base_footprint"></parent>
+        <child link="base_link"></child>
+    </joint>
+
+    <link name="right_wheel_link">
+        <visual>
+            <origin rpy="1.57 0 4.71" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://mower_description/meshes/wheel.STL"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="right_wheel_joint" type="revolute">
+        <origin rpy="0 0 0" xyz="88 7.5 -19"></origin>
+        <axis xyz="1 0 0"></axis>
+        <parent link="base_link"></parent>
+        <child link="right_wheel_link"></child>
+        <limit lower="-3.14" upper="3.14" effort="10" velocity="1"/> <!-- Limits for rotation -->
+    </joint>
+
+</robot>
