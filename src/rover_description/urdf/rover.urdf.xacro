@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<robot name="rover">
+    <link name="base_link"></link>
+    <link name="base_part_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/body_rover.stl"></mesh>
+            </geometry>
+        </visual>
+    
+    </link>
+
+    <link name="left_leg_link">
+        <visual>
+            <origin rpy ="0 0 0" xyz="-261 -10 -120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/leg_1.stl"></mesh>   
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_leg_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-261 -10 -120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/leg_1.stl"></mesh>   
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="left_rocker_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-220 25 -120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/rocker_1.stl"></mesh>    
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_rocker_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-220 -25 -120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/rocker_1.stl" scale="1 -1 1"></mesh>    
+            </geometry>
+        </visual>
+
+    </link>
+
+    <link name="left_boogie_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-80 0 -70"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/boogie_1.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_boogie_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-80 0 -70"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/boogie_1.stl" scale="1 -1 1"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="u_joint_1_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="u_joint_5_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base_part_link_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="-183 -75 -118"></origin>
+        <parent link="base_link"></parent>
+        <child link="base_part_link"></child>
+
+    </joint>
+
+    <joint name="base_part_left_leg_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="0 -105 0"></origin>
+        <parent link="base_link"></parent>
+        <child link="left_leg_link"></child>
+    </joint>
+
+    <joint name="base_part_right_leg_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="0 120 0"></origin>
+        <parent link="base_link"></parent>
+        <child link="right_leg_link"></child>
+
+    </joint>
+
+    <joint name="left_rocker_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.04" upper="1.04" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="0 -129 0"></origin>
+        <parent link="base_link"></parent>
+        <child link="left_rocker_link"></child>
+    </joint>
+
+    <joint name="right_rocker_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.04" upper="1.04" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="0 129 0"></origin>
+        <parent link="base_link"></parent>
+        <child link="right_rocker_link"></child>
+    </joint>
+    
+    <joint name="left_boogie_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="-183 -27 -50"></origin>
+        <parent link="left_leg_link"></parent>
+        <child link="left_boogie_link"></child>
+    </joint>
+
+    <joint name="right_boogie_joint" type="revolute">
+        <axis xyz="0 1 0"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="-183 5 -50"></origin>
+        <parent link="right_leg_link"></parent>
+        <child link="right_boogie_link"></child>
+    </joint>
+
+
+    <joint name="u_joint_1_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="-80 0 0"></origin>
+        <parent link="left_boogie_link"></parent>
+        <child link="u_joint_1_link"></child>
+    </joint>
+
+    <joint name="u_joint_5_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="80 0 0"></origin>
+        <parent link="right_boogie_link"></parent>
+        <child link="u_joint_5_link"></child>
+    </joint>
+
+</robot>
