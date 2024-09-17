@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+
+<robot name="rover">
+    <link name="base_link"></link>
+    <link name="base_part">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <box size="0.31 0.33 0.20"></box>
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <box size="0.31 0.33 0.20"></box>
+            </geometry>
+        </collision>
+    </link>
+    
+    <link name="leg1_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="leg2_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="leg3_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="leg4_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="leg5_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="leg6_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.075"></origin>
+            <geometry>
+                <box size="0.04 0.04 0.20"></box>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base_part_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.3" ></origin>
+        <parent link="base_link"></parent>
+        <child link="base_part"></child>
+    </joint>
+
+    <joint name="leg1_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0.155 0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg1_link"></child>
+    </joint>
+
+    <joint name="leg2_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg2_link"></child>
+    </joint>
+
+    <joint name="leg3_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="-0.155 0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg3_link"></child>
+    </joint>
+    <joint name="leg4_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0.155 -0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg4_link"></child>
+    </joint>
+
+    <joint name="leg5_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 -0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg5_link"></child>
+    </joint>
+
+    <joint name="leg6_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="-0.155 -0.165 0"></origin>
+        <parent link="base_part"></parent>
+        <child link="leg6_link"></child>
+    </joint>
+    
+</robot>

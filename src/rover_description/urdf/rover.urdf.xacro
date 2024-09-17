@@ -1,276 +1,587 @@
 <?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rover">
 
-<robot name="rover">
     <link name="base_link"></link>
     <link name="base_part_link">
+        <inertial>
+            <origin xyz="0.36858011704103055 0.12727195552741655 0.2893761824201176" rpy="0 0 0"/>
+            <mass value="5.3148472840078265"/>
+            <inertia ixx="0.035413" iyy="0.043631" izz="0.066908" ixy="0.000486" iyz="-0.000133" ixz="0.001263"/>
+          </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
                 <mesh filename="package://rover_description/meshes/body_rover.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0.5"/>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/body_rover.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
+        
     </link>
 
     <link name="left_leg_link">
+        <inertial>
+            <origin xyz="0.0940898084139219 0.012814069160764302 -0.012373797524457275" rpy="0 0 0"/>
+            <mass value="0.6560655147003178"/>
+            <inertia ixx="0.00059" iyy="0.004256" izz="0.003752" ixy="-2e-06" iyz="6e-06" ixz="0.001033"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.261 -0.010 -0.120"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/leg_1.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.261 -0.010 -0.120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/leg_1.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="right_leg_link">
+        <inertial>
+            <origin xyz="0.09408981018832419 -0.012814870490642113 -0.012373814218106793" rpy="0 0 0"/>
+            <mass value="0.6560656136558927"/>
+            <inertia ixx="0.00059" iyy="0.004256" izz="0.003752" ixy="2e-06" iyz="-6e-06" ixz="0.001033"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.261 -0.010 -0.120"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/leg_1.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.261 -0.010 -0.120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/leg_1.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="left_rocker_link">
+        <inertial>
+            <origin xyz="-0.06571336847368092 -0.013275152182515076 -0.055118178975015475" rpy="0 0 0"/>
+            <mass value="0.8937260483050995"/>
+            <inertia ixx="0.002073" iyy="0.003258" izz="0.001843" ixy="-2.3e-05" iyz="-7.1e-05" ixz="-0.001236"/>
+        </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.220 0.025 -0.120"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/rocker_1.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.220 0.025 -0.120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/rocker_1.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="right_rocker_link">
+        <inertial>
+            <origin xyz="-0.0656809601110295 0.013042069644830123 -0.054335275342790645" rpy="0 0 0"/>
+            <mass value="0.9511150507226518"/>
+            <inertia ixx="0.002083" iyy="0.003269" izz="0.001848" ixy="1.6e-05" iyz="-3.7e-05" ixz="-0.001236"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.220 -0.025 -0.120"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/rocker_1.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.220 -0.025 -0.120"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/rocker_1.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="left_boogie_link">
+        <inertial>
+            <origin xyz="-2.773434771169425e-05 0.01378851335933029 -0.019093045660989794" rpy="0 0 0"/>
+            <mass value="1.4914158227201482"/>
+            <inertia ixx="0.002319" iyy="0.009171" izz="0.00813" ixy="-7e-06" iyz="-0.000106" ixz="6e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.080 0.000 -0.070"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/boogie_1.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.080 0.000 -0.070"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/boogie_1.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="right_boogie_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.080 0.000 -0.070"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/boogie_1.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.080 0.000 -0.070"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/boogie_1.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_1_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_2_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_3_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_4_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_5_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="u_joint_6_link">
+        <inertial>
+            <origin xyz="8.210657408652677e-05 -0.013101623219513326 -0.01912358611502865" rpy="0 0 0"/>
+            <mass value="1.4914778130132003"/>
+            <inertia ixx="0.00232" iyy="0.009173" izz="0.008131" ixy="0.0" iyz="-0.000101" ixz="-1e-06"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.175 0.239 -0.110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl" scale="0.001 0.001 0.001"></mesh>
+            </geometry>
+        </collision>
     </link>
 
     <link name="wheel_1_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+            <gazebo>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>5.0</mu>      <!-- Friction coefficient -->
+                            <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                        </ode>
+                    </friction>
+                    <bounce>
+                        <restitution_coefficient>0.0</restitution_coefficient>
+                        <threshold>1000.0</threshold>
+                    </bounce>
+                    <contact>
+                        <ode>
+                            <kp>100000.0</kp> <!-- Stiffness parameter -->
+                            <kd>1.0</kd>      <!-- Damping parameter -->
+                        </ode>
+                    </contact>
+                </surface>
+            </gazebo>
+        </collision>
     </link>
 
     <link name="wheel_2_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+            <gazebo>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>5.0</mu>      <!-- Friction coefficient -->
+                            <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                        </ode>
+                    </friction>
+                    <bounce>
+                        <restitution_coefficient>0.0</restitution_coefficient>
+                        <threshold>1000.0</threshold>
+                    </bounce>
+                    <contact>
+                        <ode>
+                            <kp>100000.0</kp> <!-- Stiffness parameter -->
+                            <kd>1.0</kd>      <!-- Damping parameter -->
+                        </ode>
+                    </contact>
+                </surface>
+            </gazebo>
+        </collision>
     </link>
 
     <link name="wheel_3_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+            <gazebo>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>5.0</mu>      <!-- Friction coefficient -->
+                            <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                        </ode>
+                    </friction>
+                    <bounce>
+                        <restitution_coefficient>0.0</restitution_coefficient>
+                        <threshold>1000.0</threshold>
+                    </bounce>
+                    <contact>
+                        <ode>
+                            <kp>100000.0</kp> <!-- Stiffness parameter -->
+                            <kd>1.0</kd>      <!-- Damping parameter -->
+                        </ode>
+                    </contact>
+                </surface>
+            </gazebo>
+        </collision>
     </link>
 
     <link name="wheel_4_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+        </collision>
+        <gazebo>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>5.0</mu>      <!-- Friction coefficient -->
+                        <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                    </ode>
+                </friction>
+                <bounce>
+                    <restitution_coefficient>0.0</restitution_coefficient>
+                    <threshold>1000.0</threshold>
+                </bounce>
+                <contact>
+                    <ode>
+                        <kp>100000.0</kp> <!-- Stiffness parameter -->
+                        <kd>1.0</kd>      <!-- Damping parameter -->
+                    </ode>
+                </contact>
+            </surface>
+        </gazebo>
     </link>
 
     <link name="wheel_5_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+            <gazebo>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>5.0</mu>      <!-- Friction coefficient -->
+                            <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                        </ode>
+                    </friction>
+                    <bounce>
+                        <restitution_coefficient>0.0</restitution_coefficient>
+                        <threshold>1000.0</threshold>
+                    </bounce>
+                    <contact>
+                        <ode>
+                            <kp>100000.0</kp> <!-- Stiffness parameter -->
+                            <kd>1.0</kd>      <!-- Damping parameter -->
+                        </ode>
+                    </contact>
+                </surface>
+            </gazebo>
+        </collision>
     </link>
     
 
     <link name="wheel_6_link">
+        <inertial>
+            <origin xyz="-1.0959477414473895e-07 -0.035645342277154296 3.2835295757371874e-07" rpy="0 0 0"/>
+            <mass value="0.33507957881433253"/>
+            <inertia ixx="0.000264" iyy="0.000363" izz="0.000264" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+          </inertial>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"></origin>
             <geometry>
                 <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/wheel.stl" scale="0.001 -0.001 0.001"></mesh>
+            </geometry>
+        </collision>
+        <gazebo>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>5.0</mu>      <!-- Friction coefficient -->
+                        <mu2>5.0</mu2>    <!-- Lateral friction coefficient -->
+                    </ode>
+                </friction>
+                <bounce>
+                    <restitution_coefficient>0.0</restitution_coefficient>
+                    <threshold>1000.0</threshold>
+                </bounce>
+                <contact>
+                    <ode>
+                        <kp>100000.0</kp> <!-- Stiffness parameter -->
+                        <kd>1.0</kd>      <!-- Damping parameter -->
+                    </ode>
+                </contact>
+            </surface>
+        </gazebo>
     </link>
 
     <joint name="base_part_link_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="-0.183 -0.075 -0.118"></origin>
+        <origin rpy="0 0 0" xyz="-0.183 -0.075 0.027"></origin>
         <parent link="base_link"></parent>
         <child link="base_part_link"></child>
     </joint>
 
-    <joint name="base_part_left_leg_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="0 -0.105 0"></origin>
+    <joint name="base_part_left_leg_joint" type="fixed">
+
+        <origin rpy="0 0 0" xyz="0 -0.105 0.145"></origin>
         <parent link="base_link"></parent>
         <child link="left_leg_link"></child>
     </joint>
 
-    <joint name="base_part_right_leg_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="0 0.120 0"></origin>
+    <joint name="base_part_right_leg_joint" type="fixed">
+
+        <origin rpy="0 0 0" xyz="0 0.120 0.145"></origin>
         <parent link="base_link"></parent>
         <child link="right_leg_link"></child>
     </joint>
 
-    <joint name="left_rocker_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.04" upper="1.04" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="0 -0.129 0"></origin>
+    <joint name="left_rocker_joint" type="fixed">
+
+        <origin rpy="0 0 0" xyz="0 -0.129 0.145"></origin>
         <parent link="base_link"></parent>
         <child link="left_rocker_link"></child>
     </joint>
 
-    <joint name="right_rocker_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.04" upper="1.04" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="0 0.129 0"></origin>
+    <joint name="right_rocker_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0.129 0.145"></origin>
         <parent link="base_link"></parent>
         <child link="right_rocker_link"></child>
     </joint>
 
-    <joint name="left_boogie_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="-0.183 -0.027 -0.050"></origin>
+    <joint name="left_boogie_joint" type="fixed">
+
+        <origin rpy="0 0 0" xyz="-0.183 -0.027 -0.045"></origin>
         <parent link="left_leg_link"></parent>
         <child link="left_boogie_link"></child>
     </joint>
 
-    <joint name="right_boogie_joint" type="revolute">
-        <axis xyz="0 1 0"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="-0.183 0.005 -0.050"></origin>
+    <joint name="right_boogie_joint" type="fixed">
+
+        <origin rpy="0 0 0" xyz="-0.183 0.005 -0.045"></origin>
         <parent link="right_leg_link"></parent>
         <child link="right_boogie_link"></child>
     </joint>
 
-    <joint name="u_joint_1_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_1_joint" type="fixed">
         <origin rpy="0 0 0" xyz="-0.080 0 0"></origin>
         <parent link="left_boogie_link"></parent>
         <child link="u_joint_1_link"></child>
     </joint>
 
-    <joint name="u_joint_2_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_2_joint" type="fixed">
         <origin rpy="0 0 0" xyz="0.080 0 0"></origin>
         <parent link="left_boogie_link"></parent>
         <child link="u_joint_2_link"></child>
     </joint>
 
-    <joint name="u_joint_3_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_3_joint" type="fixed">
         <origin rpy="0 0 0" xyz="0.100 -0.005 -0.056"></origin>
         <parent link="left_rocker_link"></parent>
         <child link="u_joint_3_link"></child>
     </joint>
 
-    <joint name="u_joint_4_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_4_joint" type="fixed">
         <origin rpy="0 0 0" xyz="-0.080 0 0"></origin>
         <parent link="right_boogie_link"></parent>
         <child link="u_joint_4_link"></child>
     </joint>
 
-    <joint name="u_joint_5_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_5_joint" type="fixed">
         <origin rpy="0 0 0" xyz="0.080 0 -0.004"></origin>
         <parent link="right_boogie_link"></parent>
         <child link="u_joint_5_link"></child>
     </joint>
 
-    <joint name="u_joint_6_joint" type="revolute">
-        <axis xyz="0 0 1"></axis>
-        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+    <joint name="u_joint_6_joint" type="fixed">
         <origin rpy="0 0 0" xyz="0.100 0.002 -0.056"></origin>
         <parent link="right_rocker_link"></parent>
         <child link="u_joint_6_link"></child>
@@ -281,6 +592,8 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_1_link"></parent>
         <child link="wheel_1_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
 
     <joint name="wheel_2_joint" type="continuous">
@@ -288,6 +601,8 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_2_link"></parent>
         <child link="wheel_2_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
 
     <joint name="wheel_3_joint" type="continuous">
@@ -295,6 +610,8 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_3_link"></parent>
         <child link="wheel_3_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
 
     <joint name="wheel_4_joint" type="continuous">
@@ -302,6 +619,8 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_4_link"></parent>
         <child link="wheel_4_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
 
     <joint name="wheel_5_joint" type="continuous">
@@ -309,6 +628,8 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_5_link"></parent>
         <child link="wheel_5_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
 
     <joint name="wheel_6_joint" type="continuous">
@@ -316,6 +637,36 @@
         <origin rpy="0 0 0" xyz="0 -0.019 -0.065"></origin>
         <parent link="u_joint_6_link"></parent>
         <child link="wheel_6_link"></child>
+        <dynamics damping="0.1" friction="1.0"/>
+        <velocity>0.0</velocity> <!-- Ensure no initial velocity -->
     </joint>
+      
+
+    <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+            <left_joint>wheel_1_joint</left_joint>
+            <right_joint>wheel_4_joint</right_joint>
+            <wheel_separation>0.309</wheel_separation>
+            <wheel_diameter>0.08</wheel_diameter>
+            
+
+            
+            <max_wheel_torque>200</max_wheel_torque>
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>
+            
+            <command_topic>cmd_vel</command_topic>
+
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            
+            <odometry_topic>odom</odometry_topic>
+            
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+
+        </plugin>
+      </gazebo>
+
 
 </robot>

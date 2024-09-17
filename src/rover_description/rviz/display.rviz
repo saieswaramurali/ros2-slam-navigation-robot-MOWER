@@ -43,7 +43,7 @@ Visualization Manager:
       Offset:
         X: 0
         Y: 0
-        Z: 0
+        Z: -0.02
       Plane: XY
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
@@ -71,7 +71,7 @@ Visualization Manager:
           Value: true
         wheel_right_link:
           Value: true
-      Marker Scale: 200
+      Marker Scale: 0.200
       Name: TF
       Show Arrows: true
       Show Axes: true
