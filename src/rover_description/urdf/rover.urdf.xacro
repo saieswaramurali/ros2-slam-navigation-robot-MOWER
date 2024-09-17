@@ -76,8 +76,44 @@
         </visual>
     </link>
 
+    <link name="u_joint_2_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="u_joint_3_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="u_joint_4_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
 
     <link name="u_joint_5_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
+            <geometry>
+                <mesh filename="package://rover_description/meshes/u_joint.stl"></mesh>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="u_joint_6_link">
         <visual>
             <origin rpy="0 0 0" xyz="-175 239 -110"></origin>
             <geometry>
@@ -145,18 +181,52 @@
 
     <joint name="u_joint_1_joint" type="revolute">
         <axis xyz="0 0 1"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
         <origin rpy="0 0 0" xyz="-80 0 0"></origin>
         <parent link="left_boogie_link"></parent>
         <child link="u_joint_1_link"></child>
     </joint>
 
+
+    <joint name="u_joint_2_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="80 0 0"></origin>
+        <parent link="left_boogie_link"></parent>
+        <child link="u_joint_2_link"></child>
+    </joint>
+
+    <joint name="u_joint_3_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="100 -5 -56"></origin>
+        <parent link="left_rocker_link"></parent>
+        <child link="u_joint_3_link"></child>
+    </joint>
+
+
+    <joint name="u_joint_4_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="-80 0 0"></origin>
+        <parent link="right_boogie_link"></parent>
+        <child link="u_joint_4_link"></child>
+    </joint>
+
     <joint name="u_joint_5_joint" type="revolute">
         <axis xyz="0 0 1"></axis>
-        <limit lower="-1.57" upper="1.57" effort='10.0' velocity="1.0"></limit>
-        <origin rpy="0 0 0" xyz="80 0 0"></origin>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="80 0 -4"></origin>
         <parent link="right_boogie_link"></parent>
         <child link="u_joint_5_link"></child>
+    </joint>
+
+    <joint name="u_joint_6_joint" type="revolute">
+        <axis xyz="0 0 1"></axis>
+        <limit lower="-0.785" upper="0.785" effort='10.0' velocity="1.0"></limit>
+        <origin rpy="0 0 0" xyz="100 2 -56"></origin>
+        <parent link="right_rocker_link"></parent>
+        <child link="u_joint_6_link"></child>
     </joint>
 
 </robot>
