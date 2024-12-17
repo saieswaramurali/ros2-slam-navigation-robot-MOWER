@@ -60,11 +60,31 @@ def generate_launch_description():
         output='screen'
     )
 
+    diff_drive_controller_node = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['diff_cont'],
+        output='screen',
+        remappings=[
+                ('/diff_cont/odom', '/odom'),
+            ]
+    )
+
+    joint_state_broadcaster_node = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_broad'],
+        output='screen'
+    )
+
     return LaunchDescription([
         env_var,
         model_arg,
         start_gazebo_server,
         start_gazebo_client,
         robot_state_publisher_node,
-        spawn_robot
+        diff_drive_controller_node,
+        joint_state_broadcaster_node,
+        spawn_robot,
+
     ])

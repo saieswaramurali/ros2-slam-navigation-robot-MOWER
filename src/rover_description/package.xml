@@ -18,6 +18,9 @@
 <exec_depend>ros2launch</exec_depend>
 <exec_depend>gazebo_ros_pkgs</exec_depend>
 <exec_depend>gazebo_plugins</exec_depend>
+<depend>controller_manager</depend>
+<depend>diff_drive_controller</depend>
+<depend>joint_state_broadcaster</depend>
 
 <test_depend>ament_lint_auto</test_depend>
 <test_depend>ament_lint_common</test_depend>
