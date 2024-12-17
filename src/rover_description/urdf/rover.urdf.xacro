@@ -2,6 +2,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rover">
 
     <link name="base_link"></link>
+    <link name="base_footprint"></link>
+    <joint name="base_footprint_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0"></origin>
+        <parent link="base_link"></parent>
+        <child link="base_footprint"></child>
+    </joint>
     <link name="base_part_link">
         <inertial>
             <origin xyz="0.36858011704103055 0.12727195552741655 0.2893761824201176" rpy="0 0 0"/>
@@ -689,7 +695,7 @@
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
-            <update_rate>10</update_rate>
+            <update_rate>50</update_rate>
             <ray>
                 <scan>
                     <horizontal>
@@ -714,7 +720,7 @@
     </gazebo>
     
     <!-- SIMPLE CONTROLLER-->
-    <!-- <gazebo>
+    <gazebo>
         <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
             <left_joint>wheel_1_joint</left_joint>
             <right_joint>wheel_4_joint</right_joint>
@@ -739,7 +745,7 @@
             <robot_base_frame>base_link</robot_base_frame>
   
         </plugin>
-      </gazebo> -->
+      </gazebo>
 
 
       <!-- ROS2 CONTROL-->
@@ -751,24 +757,24 @@
         </hardware>
         <joint name="wheel_1_joint">
             <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
+                <param name="min">-20</param>
+                <param name="max">20</param>
             </command_interface>
             <state_interface name="velocity"></state_interface>
             <state_interface name="position"></state_interface>
         </joint>
         <joint name="wheel_4_joint">
             <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
+                <param name="min">-20</param>
+                <param name="max">20</param>
             </command_interface>
             <state_interface name="velocity"></state_interface>
             <state_interface name="position"></state_interface>
         </joint>
         <joint name="wheel_3_joint">
             <command_interface name="velocity">
-                <param name="min">-10</param>
-                <param name="max">10</param>
+                <param name="min">-20</param>
+                <param name="max">20</param>
             </command_interface>
             <state_interface name="velocity"></state_interface>
             <state_interface name="position"></state_interface>
@@ -783,7 +789,6 @@
         </joint>
       </ros2_control>
       
-
 
       <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
